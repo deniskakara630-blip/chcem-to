@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Chcem to | Remeselníci a služby",
-  description: "Zadajte zákazku a získajte ponuky od overených remeselníkov.",
+  title: "Robko | Robko robí pre vás",
+  description: "Povedzte Robkovi, čo potrebujete. Získajte ponuky od overených remeselníkov a vyberte si tú najlepšiu.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
