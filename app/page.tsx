@@ -1,28 +1,14 @@
 import Link from "next/link";
-
-const services=[
-  {icon:"🎨",name:"Maľovanie a stierky"},{icon:"🔌",name:"Elektrika"},{icon:"💧",name:"Vodoinštalácia"},
-  {icon:"📦",name:"Montáž nábytku"},{icon:"🧱",name:"Rekonštrukcia"},{icon:"🧹",name:"Upratovanie"},
-  {icon:"🌱",name:"Záhrada"},{icon:"🚚",name:"Preprava"},{icon:"•••",name:"Ďalšie služby"}
-];
-const Robko=({small=false}:{small?:boolean})=><img className={small?"robkoImg small":"robkoImg"} src="/robko.svg" alt="Majster Robko"/>;
-
-export default function Home(){return <main className="conceptHome">
-  <section className="conceptHero">
-    <div className="conceptCopy">
-      <div className="conceptLogo"><Robko/><span>Majster<br/><b>Robko</b></span></div>
-      <h1>Robko robí pre vás.</h1>
-      <p className="conceptLead">Jednoducho zadáte,<br/>čo potrebujete spraviť.<br/>Overení majstri vám pošlú<br/>ponuky. Vy si vyberiete.</p>
-      <Link className="conceptCta" href="/dopyt">Začať zadarmo <span>→</span></Link>
-      <div className="benefits"><div><i>⚡</i><p><b>Rýchlo</b><span>Ponuky už do pár hodín</span></p></div><div><i>✓</i><p><b>Overení majstri</b><span>Hodnotenia a recenzie</span></p></div><div><i>💬</i><p><b>Bez obvolávania</b><span>Vy zadáte, oni sa ozvú</span></p></div></div>
-    </div>
-    <div className="phoneMock">
-      <div className="phoneTop"><div className="miniLogo"><Robko small/><b>Majster <em>Robko</em></b></div><span>🔔</span></div>
-      <h2>Čo potrebujete<br/>spraviť?</h2><Link href="/dopyt" className="searchMock">⌕ <span>Napíšte, čo potrebujete...</span></Link>
-      <div className="serviceGrid">{services.map(s=><Link href="/dopyt" key={s.name}><strong>{s.icon}</strong><span>{s.name}</span></Link>)}</div>
-      <div className="robkoHelp"><Robko small/><p><b>Neviete si vybrať?</b><br/>Napíšte, čo potrebujete.<br/>Robko vám poradí.</p></div>
-      <div className="phoneNav"><span className="active">⌂<small>Domov</small></span><span>▣<small>Moje zákazky</small></span><Link href="/dopyt" className="plus">+</Link><span>▢<small>Správy</small></span><span>♙<small>Profil</small></span></div>
-    </div>
-  </section>
-  <section className="conceptSteps"><div><i>▣</i><p><b>Zadáte, čo potrebujete</b><span>Jednoducho a za pár minút.</span></p></div><div><i>♟</i><p><b>Majstri sa vám ozvú</b><span>Porovnajte ponuky, ceny aj termíny.</span></p></div><div><i>✓</i><p><b>Vyberiete si</b><span>A dohodnite sa priamo v aplikácii.</span></p></div><div><i>⌂</i><p><b>Robko to dá dokopy</b><span>Práca je hotová. Spoľahlivo a bez stresu.</span></p></div></section>
+const services=["🎨 Maľovanie","🔌 Elektrika","💧 Voda","📦 Nábytok","🧱 Rekonštrukcia","🧹 Upratovanie","🌱 Záhrada","🚚 Preprava","••• Ďalšie"];
+const Robko=()=> <img className="robkoImg" src="/robko.svg" alt="Majster Robko"/>;
+export default function Home(){return <main className="landing">
+<section className="showcase">
+<div className="copy"><div className="logo"><Robko/><div>Majster<br/><strong>Robko</strong></div></div><h1>Robko robí pre vás.</h1><p>Jednoducho zadáte,<br/>čo potrebujete spraviť.<br/>Overení majstri vám pošlú<br/>ponuky. Vy si vyberiete.</p><Link href="/dopyt" className="cta">Začať zadarmo →</Link><div className="perks"><div><i>⚡</i><span><b>Rýchlo</b>Ponuky už do pár hodín</span></div><div><i>✓</i><span><b>Overení majstri</b>Hodnotenia a recenzie</span></div><div><i>●</i><span><b>Bez obvolávania</b>Vy zadáte, oni sa ozvú</span></div></div></div>
+<div className="phones">
+<div className="phone p1"><div className="island"/><header><small>9:41</small><b>Majster <em>Robko</em></b>🔔</header><h2>Čo potrebujete<br/>spraviť?</h2><div className="search">⌕ &nbsp; Napíšte, čo potrebujete...</div><div className="grid">{services.map(x=><div key={x}>{x}</div>)}</div><div className="help"><Robko/><span><b>Neviete si vybrať?</b><br/>Napíšte, čo potrebujete.<br/>Robko vám poradí.</span></div><nav>⌂　▣　<b>＋</b>　▢　♙</nav></div>
+<div className="phone p2"><div className="island"/><header><small>9:41</small><b>Nová zákazka</b></header><div className="bar"><i/></div><h3>Čo potrebujete spraviť?</h3><div className="field big">Potrebujem vymaľovať 2-izbový byt (cca 60 m²). Biele steny, obývačka by mala byť svetlosivá.</div><h4>Pridajte fotky</h4><div className="photos"><span>＋</span><span>🏠</span><span>🛋️</span></div><h4>Kedy to potrebujete?</h4><div className="field">▣ &nbsp; V najbližších 2 týždňoch</div><h4>Kde sa to bude realizovať?</h4><div className="field">● &nbsp; Bratislava</div><button>Pokračovať →</button></div>
+<div className="phone p3"><div className="island"/><header><small>9:41</small><b>Ponuky (4)</b></header><h3>Maľovanie bytu</h3><div className="tabs">Všetky ponuky (4)　 Aktívne (4)</div>{[["Martin K.","650 €","4.9"],["Peter S.","590 €","4.8"],["ColorPro s.r.o.","720 €","4.7"]].map(o=><div className="offer" key={o[0]}><div><b>{o[0]}</b><strong>{o[1]}</strong></div><small>⭐ {o[2]}　 Termín: 18.–20.4.</small><p>Profesionálne maľovanie, materiál a upratovanie.</p><button>Prijať ponuku</button> <span>Napísať</span></div>)}</div>
+<div className="phone p4"><div className="island"/><header><small>9:41</small><b>Martin K.</b> ☎</header><div className="chat"><p className="mine">Dobrý deň, kedy by ste mohli začať?</p><p>Dobrý deň, viem začať od budúceho týždňa. Priložím vám aj orientačný harmonogram prác.</p><p>📄 Harmonogram.pdf</p><p className="mine">Vyzerá to dobre. Dohodnuté, idem prijať ponuku. 👍</p></div><div className="input">Napíšte správu...　➤</div></div>
+</div></section>
+<section className="steps"><div><i>▣</i><span><b>Zadáte, čo potrebujete</b>Jednoducho a za pár minút.</span></div><div><i>♟</i><span><b>Majstri sa vám ozvú</b>Porovnajte ponuky, ceny aj termíny.</span></div><div><i>✓</i><span><b>Vyberiete si</b>A dohodnite sa priamo v aplikácii.</span></div><div><i>⌂</i><span><b>Robko to dá dokopy</b>Práca je hotová. Spoľahlivo a bez stresu.</span></div></section>
 </main>}
