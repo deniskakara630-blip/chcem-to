@@ -2,7 +2,6 @@ import "./globals.css";
 import "./background.css";
 import "./robko-reference.css";
 import "./phone1-reference.css";
-import "./corner-robko.css";
 
 export const metadata = {
   title: "Robko | Robko robí pre vás",
@@ -10,5 +9,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="sk"><body>{children}<a className="cornerRobko" href="/" aria-label="Majster Robko"><img src="/robko-master.png" alt="Majster Robko" /></a></body></html>;
+  return <html lang="sk"><body>{children}</body></html>;
 }
