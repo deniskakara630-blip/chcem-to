@@ -4,7 +4,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { createClient } from "../../lib/supabase/client";
 
-const Robko=({className=""}:{className?:string})=><img className={className} src="https://raw.githubusercontent.com/deniskakara630-blip/chcem-to/main/public/robko-master.png" alt="Majster Robko"/>;
+const ROBKO="https://raw.githubusercontent.com/deniskakara630-blip/chcem-to/main/public/robko-master.png";
+const Robko=({className=""}:{className?:string})=><img className={className} src={ROBKO} alt="Majster Robko"/>;
 
 export default function DopytPage(){
  const router=useRouter(); const [step,setStep]=useState(1); const [saving,setSaving]=useState(false); const [error,setError]=useState("");
