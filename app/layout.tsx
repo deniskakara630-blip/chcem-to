@@ -1,6 +1,7 @@
 import "./globals.css";
 import "./background.css";
 import "./robko-reference.css";
+import "./phone1-reference.css";
 
 export const metadata = {
   title: "Robko | Robko robí pre vás",
