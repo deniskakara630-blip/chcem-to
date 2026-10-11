@@ -1,4 +1,39 @@
 import Link from "next/link";
-const services=[{icon:"🎨",name:"Maliar"},{icon:"⚡",name:"Elektrikár"},{icon:"🔧",name:"Inštalatér"},{icon:"🧹",name:"Upratovanie"},{icon:"🪑",name:"Montáž nábytku"},{icon:"➕",name:"Ďalšie služby"}];
-const offers=[{name:"Martin Novák",rating:"4,9",price:690,term:"o 4 dni",badge:"Odporúčané"},{name:"Farbíme s.r.o.",rating:"4,7",price:640,term:"o 6 dní",badge:"Najnižšia cena"},{name:"Peter Kováč",rating:"4,8",price:720,term:"zajtra",badge:"Najrýchlejší"}];
-export default function Home(){return <main><header className="hero"><nav><strong>🔧 Robko</strong><Link className="buttonLink" href="/remeselnik">Pre remeselníkov</Link></nav><div className="heroContent"><p className="eyebrow">ROBKO ROBÍ PRE VÁS</p><h1>Povedzte Robkovi, čo potrebujete.<br/>Ponuky prídu za vami.</h1><p className="lead">Žiadne zdĺhavé obvolávanie. Opíšte prácu a Robko osloví vhodných remeselníkov. Vy porovnáte cenu, termín a hodnotenie.</p><div className="requestBox"><textarea defaultValue="Robko, potrebujem vymaľovať 3-izbový byt v Komárne."/><div className="requestMeta"><span>📍 Komárno</span><span>📷 Pridať fotky</span><Link className="buttonLink" href="/dopyt">Povedať Robkovi →</Link></div></div></div></header><section><div className="sectionHead"><div><p className="eyebrow dark">S ČÍM ROBKO POMÔŽE</p><h2>Čo potrebujete vyriešiť?</h2></div><p>Vyberte službu alebo jednoducho povedzte Robkovi, čo potrebujete.</p></div><div className="services">{services.map(s=><article className="service" key={s.name}><div>{s.icon}</div><strong>{s.name}</strong><Link href="/dopyt">Získať ponuky →</Link></article>)}</div></section><section className="soft"><div className="sectionHead"><div><p className="eyebrow dark">AKO TO FUNGUJE</p><h2>Robko to vybaví v troch krokoch</h2></div></div><div className="steps"><article><b>01</b><h3>Poviete, čo treba</h3><p>Opíšete zákazku, lokalitu, termín a neskôr pridáte aj fotografie.</p></article><article><b>02</b><h3>Robko hľadá</h3><p>Osloví vhodných remeselníkov a zozbiera pre vás ich ceny a termíny.</p></article><article><b>03</b><h3>Vyberiete si</h3><p>Porovnáte ponuky, vyberiete dodávateľa a otvorí sa spoločný chat.</p></article></div></section><section><div className="sectionHead"><div><p className="eyebrow dark">UKÁŽKA</p><h2>Robko našiel 3 ponuky</h2></div><span className="pill">3 nové ponuky</span></div><div className="offers">{offers.map((o,i)=><article className={i===0?"offer featured":"offer"} key={o.name}><span className="tag">{o.badge}</span><div className="person"><div className="avatar">{o.name[0]}</div><div><h3>{o.name}</h3><p>✓ Overený • ⭐ {o.rating}</p></div></div><div className="price">{o.price} €</div><p>Termín realizácie: <strong>{o.term}</strong></p><Link className="buttonLink full" href="/ponuky">Detail ponuky</Link></article>)}</div></section><footer><strong>🔧 Robko</strong><p>Robko robí pre vás • Slovenský marketplace služieb a remeselníkov</p></footer></main>}
+
+const services=[
+  {icon:"🎨",name:"Maľovanie a stierky"},{icon:"🔌",name:"Elektrika"},{icon:"💧",name:"Vodoinštalácia"},
+  {icon:"📦",name:"Montáž nábytku"},{icon:"🧱",name:"Rekonštrukcia"},{icon:"🧹",name:"Upratovanie"},
+  {icon:"🌱",name:"Záhrada"},{icon:"🚚",name:"Preprava"},{icon:"•••",name:"Ďalšie služby"}
+];
+
+export default function Home(){return <main className="conceptHome">
+  <section className="conceptHero">
+    <div className="conceptCopy">
+      <div className="conceptLogo"><span className="mascot">👷</span><span>Majster<br/><b>Robko</b></span></div>
+      <h1>Robko robí pre vás.</h1>
+      <p className="conceptLead">Jednoducho zadáte,<br/>čo potrebujete spraviť.<br/>Overení majstri vám pošlú<br/>ponuky. Vy si vyberiete.</p>
+      <Link className="conceptCta" href="/dopyt">Začať zadarmo <span>→</span></Link>
+      <div className="benefits">
+        <div><i>⚡</i><p><b>Rýchlo</b><span>Ponuky už do pár hodín</span></p></div>
+        <div><i>✓</i><p><b>Overení majstri</b><span>Hodnotenia a recenzie</span></p></div>
+        <div><i>💬</i><p><b>Bez obvolávania</b><span>Vy zadáte, oni sa ozvú</span></p></div>
+      </div>
+    </div>
+
+    <div className="phoneMock">
+      <div className="phoneTop"><div className="miniLogo"><span>👷</span><b>Majster <em>Robko</em></b></div><span>🔔</span></div>
+      <h2>Čo potrebujete<br/>spraviť?</h2>
+      <Link href="/dopyt" className="searchMock">⌕ <span>Napíšte, čo potrebujete...</span></Link>
+      <div className="serviceGrid">{services.map(s=><Link href="/dopyt" key={s.name}><strong>{s.icon}</strong><span>{s.name}</span></Link>)}</div>
+      <div className="robkoHelp"><span>👷</span><p><b>Neviete si vybrať?</b><br/>Napíšte, čo potrebujete.<br/>Robko vám poradí.</p></div>
+      <div className="phoneNav"><span className="active">⌂<small>Domov</small></span><span>▣<small>Moje zákazky</small></span><Link href="/dopyt" className="plus">+</Link><span>▢<small>Správy</small></span><span>♙<small>Profil</small></span></div>
+    </div>
+  </section>
+
+  <section className="conceptSteps">
+    <div><i>▣</i><p><b>Zadáte, čo potrebujete</b><span>Jednoducho a za pár minút.</span></p></div>
+    <div><i>♟</i><p><b>Majstri sa vám ozvú</b><span>Porovnajte ponuky, ceny aj termíny.</span></p></div>
+    <div><i>✓</i><p><b>Vyberiete si</b><span>A dohodnite sa priamo v aplikácii.</span></p></div>
+    <div><i>⌂</i><p><b>Robko to dá dokopy</b><span>Práca je hotová. Spoľahlivo a bez stresu.</span></p></div>
+  </section>
+</main>}
