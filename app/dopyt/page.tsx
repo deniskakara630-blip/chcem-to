@@ -2,10 +2,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import robko from "../../public/robko-master.png";
 import { createClient } from "../../lib/supabase/client";
 
-const Robko=({className=""}:{className?:string})=><img className={className} src={robko.src} alt="Majster Robko"/>;
+const Robko=({className=""}:{className?:string})=><img className={className} src="/robko-master.png" alt="Majster Robko"/>;
 
 export default function DopytPage(){
  const router=useRouter(); const [step,setStep]=useState(1); const [saving,setSaving]=useState(false); const [error,setError]=useState("");
