@@ -1,4 +1,5 @@
 import "./globals.css";
+import "./background.css";
 
 export const metadata = {
   title: "Robko | Robko robí pre vás",
