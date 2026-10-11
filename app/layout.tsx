@@ -9,5 +9,5 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="sk"><body>{children}</body></html>;
+  return <html lang="sk"><body>{children}<a className="cornerRobko" href="/" aria-label="Majster Robko"><img src="/robko-master.png" alt="Majster Robko" /></a></body></html>;
 }
